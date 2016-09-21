@@ -28,9 +28,19 @@ void testNet(){
     
     Listen(listenfd, LISTENQ);
     
+    Signal(listenfd, sig_chld);
+    
     while(true){
         chilen = sizeof(chiladdr);
-        connfd = Accept(listenfd, (SA *)&chiladdr, &chilen);
+//        connfd = Accept(listenfd, (SA *)&chiladdr, &chilen);
+        if((connfd = accept(listenfd, (SA *)&chiladdr, &chilen)) <0 ){
+            if(errno == EINTR){
+                continue;
+            }else{
+                err_sys("accept error");
+            }
+        }
+        
         printf("accpet");
         if((childpid = Fork()) == 0){
             printf("fork()");

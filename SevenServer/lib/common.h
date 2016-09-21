@@ -18,6 +18,10 @@
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
+#include <sys/signal.h>
+
+
+typedef	void	Sigfunc(int);	/* for signal handlers */
 
 #define	LISTENQ		1024	/* 2nd argument to listen() */
 
@@ -63,5 +67,10 @@ void	 Writen(int, void *, size_t);
 
 /*readline .h*/
 ssize_t	 Readline(int, void *, size_t);
+
+/*signal.h*/
+Sigfunc * Signal(int signo, Sigfunc *func)	;
+
+void sig_chld(int signo);
 
 #endif /* common_h */

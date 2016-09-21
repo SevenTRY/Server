@@ -16,6 +16,8 @@
 		8FE1FD351D8594A5009AD0D3 /* wrapstdio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FE1FD2A1D85931E009AD0D3 /* wrapstdio.cpp */; };
 		8FE1FD361D8594A7009AD0D3 /* writen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FE1FD2B1D85931E009AD0D3 /* writen.cpp */; };
 		8FE1FD3D1D85B01F009AD0D3 /* SocketManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FE1FD3B1D85B01F009AD0D3 /* SocketManager.cpp */; };
+		8FF9441C1D928F92000BC404 /* signal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9441A1D928F92000BC404 /* signal.cpp */; };
+		8FF9441E1D9290A8000BC404 /* sig_chld_waitpid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9441D1D9290A8000BC404 /* sig_chld_waitpid.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +45,8 @@
 		8FE1FD2F1D8593DB009AD0D3 /* str_echo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = str_echo.cpp; sourceTree = "<group>"; };
 		8FE1FD3B1D85B01F009AD0D3 /* SocketManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketManager.cpp; sourceTree = "<group>"; };
 		8FE1FD3C1D85B01F009AD0D3 /* SocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketManager.h; sourceTree = "<group>"; };
+		8FF9441A1D928F92000BC404 /* signal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = signal.cpp; sourceTree = "<group>"; };
+		8FF9441D1D9290A8000BC404 /* sig_chld_waitpid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sig_chld_waitpid.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 				8FE1FD291D85931E009AD0D3 /* wraplib.cpp */,
 				8FE1FD2A1D85931E009AD0D3 /* wrapstdio.cpp */,
 				8FE1FD2B1D85931E009AD0D3 /* writen.cpp */,
+				8FF9441A1D928F92000BC404 /* signal.cpp */,
+				8FF9441D1D9290A8000BC404 /* sig_chld_waitpid.cpp */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -162,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FF9441E1D9290A8000BC404 /* sig_chld_waitpid.cpp in Sources */,
 				8FE1FD321D85949C009AD0D3 /* error.cpp in Sources */,
 				8FE1FD301D8593DB009AD0D3 /* str_echo.cpp in Sources */,
 				8FE1FD331D85949F009AD0D3 /* readline.cpp in Sources */,
@@ -171,6 +178,7 @@
 				8FE1FD351D8594A5009AD0D3 /* wrapstdio.cpp in Sources */,
 				8FE1FD311D85949A009AD0D3 /* commsock.cpp in Sources */,
 				8FE1FD341D8594A2009AD0D3 /* wraplib.cpp in Sources */,
+				8FF9441C1D928F92000BC404 /* signal.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
