@@ -27,6 +27,7 @@ void Bind(int fd, const struct sockaddr *sa, socklen_t salen)
 {
     if (bind(fd, sa, salen) < 0)
         err_sys("bind error");
+    printf("bind succeed!");
 }
 
 /* include Listen */
@@ -40,6 +41,8 @@ void Listen(int fd, int backlog)
     
     if (listen(fd, backlog) < 0)
         err_sys("listen error");
+    
+    printf("listening……");
 }
 
 int Accept(int fd, struct sockaddr *sa, socklen_t *salenptr)

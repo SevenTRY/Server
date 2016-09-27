@@ -18,7 +18,8 @@
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
-#include <sys/signal.h>
+//#include <sys/signal.h>
+#include <signal.h>
 
 
 typedef	void	Sigfunc(int);	/* for signal handlers */

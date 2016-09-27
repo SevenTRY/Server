@@ -16,6 +16,8 @@ void testNet(){
     
     struct sockaddr_in chiladdr,servaddr;
     
+    void sig_chld(int);
+    
     listenfd  =  Socket(AF_INET, SOCK_STREAM, 0);
     
     bzero(&servaddr, sizeof(servaddr));
@@ -28,13 +30,14 @@ void testNet(){
     
     Listen(listenfd, LISTENQ);
     
-    Signal(listenfd, sig_chld);
+    Signal(SIGCHLD, sig_chld);
     
     while(true){
         chilen = sizeof(chiladdr);
 //        connfd = Accept(listenfd, (SA *)&chiladdr, &chilen);
         if((connfd = accept(listenfd, (SA *)&chiladdr, &chilen)) <0 ){
             if(errno == EINTR){
+                printf("EINTR");
                 continue;
             }else{
                 err_sys("accept error");
@@ -44,7 +47,7 @@ void testNet(){
         printf("accpet");
         if((childpid = Fork()) == 0){
             printf("fork()");
-            Close(childpid);
+            Close(listenfd);
             str_echo(connfd);
             exit(0);
         }
