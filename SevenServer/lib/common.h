@@ -20,11 +20,12 @@
 #include <string.h>
 //#include <sys/signal.h>
 #include <signal.h>
+#include <poll.h>
 
 
 typedef	void	Sigfunc(int);	/* for signal handlers */
 
-#define	LISTENQ		1024	/* 2nd argument to listen() */
+#define 	LISTENQ		1024	/* 2nd argument to listen() */
 
 #define	SA	struct sockaddr
 
@@ -44,6 +45,10 @@ void Listen(int fd, int backlog);
 int Accept(int fd, struct sockaddr *sa, socklen_t *salenptr);
 pid_t Fork(void);
 void Close(int fd);
+int Select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds,
+           struct timeval *timeout);
+ssize_t Read(int fd, void *ptr, size_t nbytes);
+int	 Poll(struct pollfd *, unsigned int, int);
 
 /*error .h*/
 void err_sys(const char *fmt, ...);

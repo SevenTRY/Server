@@ -27,7 +27,7 @@ void Bind(int fd, const struct sockaddr *sa, socklen_t salen)
 {
     if (bind(fd, sa, salen) < 0)
         err_sys("bind error");
-    printf("bind succeed!");
+    printf("bind succeed!\n");
 }
 
 /* include Listen */
@@ -42,7 +42,26 @@ void Listen(int fd, int backlog)
     if (listen(fd, backlog) < 0)
         err_sys("listen error");
     
-    printf("listening……");
+    printf("listening……\n");
+}
+
+int Select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds,
+           struct timeval *timeout)
+{
+    int		n;
+    
+    if ( (n = select(nfds, readfds, writefds, exceptfds, timeout)) < 0)
+        err_sys("select error");
+    return(n);		/* can return 0 on timeout */
+}
+
+ssize_t Read(int fd, void *ptr, size_t nbytes)
+{
+    ssize_t		n;
+    
+    if ( (n = read(fd, ptr, nbytes)) == -1)
+        err_sys("read error");
+    return(n);
 }
 
 int Accept(int fd, struct sockaddr *sa, socklen_t *salenptr)
@@ -76,5 +95,15 @@ void Close(int fd)
 {
     if (close(fd) == -1)
         err_sys("close error");
+}
+int
+Poll(struct pollfd *fdarray, unsigned int nfds, int timeout)
+{
+    int		n;
+    
+    if ( (n = poll(fdarray, nfds, timeout)) < 0)
+        err_sys("poll error");
+    
+    return(n);
 }
 

@@ -29,5 +29,5 @@ void Writen(int fd, void *ptr, size_t nbytes)
 	if (writen(fd, ptr, nbytes) != nbytes)
 		err_sys("writen error");
     
-    printf("writen %s",ptr);
+    printf("writen %s\n",ptr);
 }
